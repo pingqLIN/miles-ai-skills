@@ -1,0 +1,51 @@
+name: Validate Skills Registry
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-skills:
+    name: Validate Skill Structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check skill files
+        shell: bash
+        run: |
+          echo "Checking AI Skill Registry structure..."
+
+          if [ ! -f "registry/index.yaml" ]; then
+            echo "Missing registry/index.yaml"
+            exit 1
+          fi
+
+          if [ ! -d "skills" ]; then
+            echo "Missing skills directory"
+            exit 1
+          fi
+
+          for skill in skills/*; do
+            if [ -d "$skill" ]; then
+              if [ ! -f "$skill/SKILL.md" ] && [ ! -d "$skill/variants" ]; then
+                echo "Invalid skill structure: $skill"
+                exit 1
+              fi
+            fi
+          done
+
+          echo "Skill structure validation passed."
+
+      - name: Check metadata naming convention
+        shell: bash
+        run: |
+          echo "Checking skill naming convention..."
+          grep -R "^name:" skills || true
+          echo "Metadata check completed."
