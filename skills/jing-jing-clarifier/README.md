@@ -1,4 +1,4 @@
-# JING JING Clarifier
+# JING JING Clarifier（晶晶體修飾器）
 
 中文技術文本修正 Skill。
 
