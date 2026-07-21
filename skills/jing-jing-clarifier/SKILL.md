@@ -1,9 +1,10 @@
 ---
 name: jing-jing-clarifier
+display_name: 晶晶體修飾器
 description: 中文技術文本修正技能，協助 AI 統一中文表達並保留必要專有名詞。
 ---
 
-# JING JING Clarifier
+# JING JING Clarifier（晶晶體修飾器）
 
 ## Goal
 
