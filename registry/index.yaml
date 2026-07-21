@@ -1,6 +1,7 @@
 skills:
   - id: jing-jing-clarifier
     name: JING JING Clarifier
+    display_name: 晶晶體修飾器
     version: 1.0.0
     category:
       - writing
