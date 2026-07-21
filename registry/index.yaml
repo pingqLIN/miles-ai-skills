@@ -7,6 +7,22 @@ skills:
       - writing
       - localization
       - chinese
-    path: skills/jing-jing-clarifier
     status: stable
     license: MIT
+
+    variants:
+      - id: full
+        name: jing-jing-clarifier-full
+        display_name: 晶晶體修飾器（完整版）
+        description: 包含完整 AI Agent 工作流程與 Codex Spark 輔助建議的版本。
+        path: skills/jing-jing-clarifier/variants/full
+        requirements:
+          - advanced-agent-environment
+
+      - id: general
+        name: jing-jing-clarifier-general
+        display_name: 晶晶體修飾器（一般版）
+        description: 不依賴特定模型或付費方案的通用版本。
+        path: skills/jing-jing-clarifier/variants/general
+        requirements:
+          - standard-llm-environment
