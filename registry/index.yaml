@@ -1,0 +1,11 @@
+skills:
+  - id: jing-jing-clarifier
+    name: JING JING Clarifier
+    version: 1.0.0
+    category:
+      - writing
+      - localization
+      - chinese
+    path: skills/jing-jing-clarifier
+    status: stable
+    license: MIT
