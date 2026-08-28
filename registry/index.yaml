@@ -1,7 +1,8 @@
 version: "1.1.0"
 skills:
   - id: jing-jing-clarifier
-    name: "JING JING Clarifier (晶晶體修飾器)"
+    name: jing-jing-clarifier
+    display_name: "JING JING Clarifier（晶晶體修飾器）"
     path: skills/jing-jing-clarifier
     description: "將以中文為主但混入不必要英文的文本修訂為自然、清楚且一致的繁體中文，並保護程式碼、命令與精準字串。"
     version: "1.1.0"
