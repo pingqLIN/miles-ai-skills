@@ -1,28 +1,10 @@
+version: "1.1.0"
 skills:
   - id: jing-jing-clarifier
-    name: JING JING Clarifier
-    display_name: 晶晶體修飾器
-    version: 1.0.0
-    category:
-      - writing
-      - localization
-      - chinese
-    status: stable
+    name: jing-jing-clarifier
+    display_name: "JING JING Clarifier（晶晶體修飾器）"
+    path: skills/jing-jing-clarifier
+    description: "將以中文為主但混入不必要英文的文本修訂為自然、清楚且一致的繁體中文，並保護程式碼、命令與精準字串。"
+    version: "1.1.0"
+    canonical: true
     license: MIT
-
-    variants:
-      - id: full
-        name: jing-jing-clarifier-full
-        display_name: 晶晶體修飾器（完整版）
-        description: 包含完整 AI Agent 工作流程與 Codex Spark 輔助建議的版本。
-        path: skills/jing-jing-clarifier/variants/full
-        requirements:
-          - advanced-agent-environment
-
-      - id: general
-        name: jing-jing-clarifier-general
-        display_name: 晶晶體修飾器（一般版）
-        description: 不依賴特定模型或付費方案的通用版本。
-        path: skills/jing-jing-clarifier/variants/general
-        requirements:
-          - standard-llm-environment

@@ -2,17 +2,18 @@
 
 ## JING JING Clarifier
 
-This skill is derived from existing open source work.
+This skill is derived from and adapted from existing work associated with:
 
-Original reference:
-- pingqLIN/UniText
-- chinese-writing-clarifier
+- `pingqLIN/UniText`
+- `chinese-writing-clarifier` (historical source name/reference)
 
-Modifications include:
+The current `pingqLIN/UniText` repository contains an MIT License. The JING JING Clarifier adaptation retains provenance here while simplifying the skill into a client-neutral canonical definition.
 
-- Removed dependency on specific model availability
-- Added general AI Agent registry structure
-- Added non-Pro compatible usage concept
-- Adjusted terminology guidance for Traditional Chinese usage
+Material changes in v1.1.0 include:
 
-License information should follow the original project license requirements.
+- Removed model-availability and runtime-selection guidance from the skill body.
+- Removed the `full` and `general` variants in favor of one canonical skill.
+- Reworked terminology handling around semantic editing and protected literals.
+- Added repository integrity and Agent Skills specification conformance checks.
+
+If a separately identifiable upstream repository for `chinese-writing-clarifier` is later established, its exact source and license requirements should be recorded here before incorporating additional material from it.
