@@ -9,6 +9,11 @@
 | Skill | Category | Status |
 |---|---|---|
 | JING JING Clarifier | 繁體中文文本修訂 | Stable |
+| Right-Sizing Agent Tasks | Agent 治理／任務縮編 | Stable |
+
+## Project Relationships
+
+`right-sizing-agent-tasks` 是 `lead-agent-control-plane` 的前置 task-preparation policy：Skill 負責將寬廣或重複的需求整理成 TASK-LITE；Lead Agent 專案負責 execution-time intake、authority、routing、evidence 與 final acceptance。兩者相容但不互相取代，也不把 Skill 安裝狀態視為專案 runtime acceptance。
 
 ## Repository Structure
 
@@ -20,9 +25,11 @@ miles-ai-skills/
 ├── scripts/
 │   └── validate-registry.py # Repository integrity validator
 ├── skills/
-│   └── jing-jing-clarifier/
-│       ├── README.md
-│       └── SKILL.md         # Canonical skill definition (v1.1.0)
+│   ├── jing-jing-clarifier/
+│   │   └── SKILL.md         # Canonical skill definition (v1.1.0)
+│   └── right-sizing-agent-tasks/
+│       ├── SKILL.md
+│       └── references/      # Pressure tests and project relationship record
 ├── THIRD_PARTY_NOTICES.md   # Attribution and upstream provenance tracking
 └── README.md
 ```

@@ -17,3 +17,11 @@ Material changes in v1.1.0 include:
 - Added repository integrity and Agent Skills specification conformance checks.
 
 If a separately identifiable upstream repository for `chinese-writing-clarifier` is later established, its exact source and license requirements should be recorded here before incorporating additional material from it.
+
+## Right-Sizing Agent Tasks
+
+The canonical package in this repository was imported from the owner's local
+`browser-governance-task-right-sizing/right-sizing-agent-tasks` authoring
+package. No separate third-party upstream or license grant was identified at
+import time; the registry therefore records its license as `unknown` rather
+than inferring one from another Skill or repository.

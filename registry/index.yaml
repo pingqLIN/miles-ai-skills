@@ -1,5 +1,21 @@
 version: "1.1.0"
 skills:
+  - id: right-sizing-agent-tasks
+    name: Right-Sizing Agent Tasks
+    display_name: Agent 任務合理縮編
+    version: 1.0.0
+    category:
+      - governance
+      - orchestration
+      - task-planning
+    status: stable
+    license: unknown
+    path: skills/right-sizing-agent-tasks
+    relationships:
+      - project: lead-agent-control-plane
+        role: task-preparation-policy
+        integration: advisory-before-intake
+
   - id: jing-jing-clarifier
     name: jing-jing-clarifier
     display_name: "JING JING Clarifier（晶晶體修飾器）"
