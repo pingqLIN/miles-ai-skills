@@ -1,46 +1,74 @@
 # Miles AI Skills Registry
 
-個人 Agent Skills Registry 與 canonical skill definitions。
+A small, portable, and verifiable collection of reusable AI Agent Skills maintained by Miles / `pingqLIN`.
 
-目前以小型、可攜、可驗證的 Skill 定義為主；Runtime routing、模型選擇與其他執行環境政策不放入 Skill 本體。
+The repository keeps **canonical Skill definitions separate from runtime-specific routing, model selection, and execution policy**. Each Skill is intended to be reviewable as a bounded behavior module rather than as an opaque agent configuration.
 
-## Available Skills
+> Traditional Chinese: [README.zh-TW.md](README.zh-TW.md)
 
-| Skill | Category | Status |
-|---|---|---|
-| JING JING Clarifier | 繁體中文文本修訂 | Stable |
-| Right-Sizing Agent Tasks | Agent 治理／任務縮編 | Stable |
+## Skills
 
-## Project Relationships
+| Skill | Purpose | Version | Status | Language files |
+|---|---|---:|---|---|
+| [JING JING Clarifier](skills/jing-jing-clarifier/SKILL.en.md) | Refines Traditional Chinese text, reduces unnecessary Chinese-English mixing, and protects technical literals. | 1.1.0 | Stable | [English](skills/jing-jing-clarifier/SKILL.en.md) · [繁中](skills/jing-jing-clarifier/SKILL.md) |
+| [Right-Sizing Agent Tasks](skills/right-sizing-agent-tasks/SKILL.en.md) | Converts broad or repetitive work into a bounded TASK-LITE while preserving safety, authority, evidence, and acceptance gates. | 1.0.0 | Stable | [English](skills/right-sizing-agent-tasks/SKILL.en.md) · [繁中](skills/right-sizing-agent-tasks/SKILL.md) |
 
-`right-sizing-agent-tasks` 是 `lead-agent-control-plane` 的前置 task-preparation policy：Skill 負責將寬廣或重複的需求整理成 TASK-LITE；Lead Agent 專案負責 execution-time intake、authority、routing、evidence 與 final acceptance。兩者相容但不互相取代，也不把 Skill 安裝狀態視為專案 runtime acceptance。
+The registry metadata is maintained in [`registry/index.yaml`](registry/index.yaml).
 
-## Repository Structure
+## Language and version policy
+
+- `SKILL.md` remains the canonical Traditional Chinese definition for the current registry Skill version.
+- `SKILL.en.md` is the English semantic companion for the same Skill version.
+- Translation must preserve behavior, safety boundaries, protected literals, required output contracts, and acceptance semantics.
+- A language-only synchronization does not imply a new behavioral Skill release. Behavioral changes should update the Skill version in [`registry/index.yaml`](registry/index.yaml) and then synchronize both language files.
+
+## Repository structure
 
 ```text
 miles-ai-skills/
 ├── .github/workflows/       # CI validation workflows
 ├── registry/
-│   └── index.yaml           # Canonical Skills registry index
+│   └── index.yaml           # Canonical registry metadata and language mapping
 ├── scripts/
 │   └── validate-registry.py # Repository integrity validator
 ├── skills/
 │   ├── jing-jing-clarifier/
-│   │   └── SKILL.md         # Canonical skill definition (v1.1.0)
+│   │   ├── SKILL.md         # Canonical Traditional Chinese definition
+│   │   └── SKILL.en.md      # English semantic companion
 │   └── right-sizing-agent-tasks/
-│       ├── SKILL.md
-│       └── references/      # Pressure tests and project relationship record
-├── THIRD_PARTY_NOTICES.md   # Attribution and upstream provenance tracking
-└── README.md
+│       ├── SKILL.md         # Canonical Traditional Chinese definition
+│       ├── SKILL.en.md      # English semantic companion
+│       └── references/      # Supporting evidence and pressure tests
+├── THIRD_PARTY_NOTICES.md   # Attribution and provenance notes
+├── README.zh-TW.md          # Traditional Chinese repository landing page
+└── README.md                # English repository landing page
 ```
 
 ## Validation
 
-本 repository 採雙層驗證：
+This repository uses two validation layers:
 
-1. **Repository Integrity**：`scripts/validate-registry.py` 檢查 `registry/index.yaml`、Skill 目錄與 `SKILL.md` frontmatter 是否一致。
-2. **Specification Conformance**：CI 使用固定 commit 的 Agent Skills `skills-ref` reference implementation 執行 `skills-ref validate`。`skills-ref` 僅作規格相容性參考，不是本 repository 唯一的 production validator。
+1. **Repository integrity** — `scripts/validate-registry.py` checks that `registry/index.yaml`, Skill directories, and canonical `SKILL.md` frontmatter remain consistent.
+2. **Specification conformance** — CI uses a pinned Agent Skills `skills-ref` reference implementation to run `skills-ref validate`. The reference implementation is a compatibility check, not the repository's only production validator.
+
+Run the local integrity check with:
+
+```bash
+python scripts/validate-registry.py
+```
+
+A successful integrity check verifies registry structure and canonical frontmatter consistency. It does **not** prove that a Skill was discovered, invoked, or accepted by a particular runtime.
+
+## Relationship to runtime systems
+
+Skills in this repository define reusable behavior and task policy. Runtime-specific concerns—such as model routing, executor selection, active installation state, or project-level authority—belong to the consuming runtime or project unless a Skill explicitly defines otherwise.
+
+For example, `right-sizing-agent-tasks` can prepare a bounded TASK-LITE before execution, while the related `lead-agent-control-plane` project remains responsible for execution-time intake, authority, routing, evidence review, and final acceptance.
 
 ## License and provenance
 
-`JING JING Clarifier` 的已知來源包含 `pingqLIN/UniText`；其目前 repository `LICENSE` 為 MIT License。衍生來源與 attribution 細節記錄於 `THIRD_PARTY_NOTICES.md`。
+This repository does not currently declare one repository-wide license. License and provenance are tracked per Skill in [`registry/index.yaml`](registry/index.yaml) and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+
+The registry and provenance notes contain the current per-Skill license status and upstream attribution. One Skill has an identified upstream license while another remains explicitly `unknown`; consult those source files before reuse or redistribution.
+
+Do not infer a repository-wide license from an individual Skill's license.
