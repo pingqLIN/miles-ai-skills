@@ -59,16 +59,6 @@ python scripts/validate-registry.py
 
 Integrity check 通過只代表 registry 結構與 canonical frontmatter 一致；**不代表**特定 runtime 已發現、載入、呼叫或驗收該 Skill。
 
-## 新增或同步 Skill
-
-1. 先確認唯一 authoritative upstream，複製前檢查 license、provenance，以及是否含有私密或僅適用單機的內容。
-2. 將完整、可攜式的 package 複製到 `skills/<skill-id>/`；排除 runtime projection wrapper、憑證、私密計畫、cache 與 machine-only evidence。
-3. 在 `registry/index.yaml` 新增或更新唯一條目，包含 version、status、license、path、`canonical_locale`、`localized_files` 與重要 relationships。
-4. 可用性、行為、provenance 或 license 變更時，同步更新兩份 README 與 `THIRD_PARTY_NOTICES.md`。
-5. 執行 repository validator 與 Skill validator，審查限定範圍的 diff，再只 commit 與 push 本次 package 與 metadata。
-
-將 source presence、publication、installation、loading 與 runtime acceptance 視為不同狀態。Git repository push 成功只證明已發布。
-
 ## 與 Runtime Systems 的責任邊界
 
 本 repository 內的 Skill 定義 reusable behavior 與 task policy。模型 routing、executor selection、實際安裝／啟用狀態與 project-level authority 等 runtime-specific concerns，除非 Skill 明確定義，否則由 consuming runtime 或專案負責。

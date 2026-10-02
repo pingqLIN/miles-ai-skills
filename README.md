@@ -59,16 +59,6 @@ python scripts/validate-registry.py
 
 A successful integrity check verifies registry structure and canonical frontmatter consistency. It does **not** prove that a Skill was discovered, invoked, or accepted by a particular runtime.
 
-## Adding or synchronizing a Skill
-
-1. Identify one authoritative upstream and inspect its license, provenance, and private or machine-specific content before copying anything.
-2. Copy the complete portable package to `skills/<skill-id>/`. Exclude runtime projection wrappers, credentials, private plans, caches, and machine-only evidence.
-3. Add or update exactly one entry in `registry/index.yaml`, including version, status, license, path, `canonical_locale`, `localized_files`, and material relationships.
-4. Update both repository landing pages and `THIRD_PARTY_NOTICES.md` when availability, behavior, provenance, or license status changes.
-5. Run the repository validator and the Skill validator, review the scoped diff, then commit and push only the intended package and metadata.
-
-Treat source presence, publication, installation, loading, and runtime acceptance as separate states. A successful repository push establishes publication only.
-
 ## Relationship to runtime systems
 
 Skills in this repository define reusable behavior and task policy. Runtime-specific concerns—such as model routing, executor selection, active installation state, or project-level authority—belong to the consuming runtime or project unless a Skill explicitly defines otherwise.
