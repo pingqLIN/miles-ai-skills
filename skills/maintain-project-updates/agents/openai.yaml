@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintain Project Updates"
+  short_description: "Assess and maintain current project progress"
+  default_prompt: "Use $maintain-project-updates to verify this project's current execution stage, identify the next bounded step toward a usable application and its acceptance check, continue authorized work, and prompt only for a material missing decision or gated action."

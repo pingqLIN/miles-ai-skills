@@ -24,5 +24,11 @@ jobs:
       - name: Run repository integrity check
         run: python scripts/validate-registry.py
 
-      - name: Run Agent Skills specification conformance check
-        run: skills-ref validate skills/jing-jing-clarifier
+      - name: Run Agent Skills specification conformance checks
+        shell: bash
+        run: |
+          for skill in skills/*; do
+            if [ -d "$skill" ]; then
+              skills-ref validate "$skill"
+            fi
+          done

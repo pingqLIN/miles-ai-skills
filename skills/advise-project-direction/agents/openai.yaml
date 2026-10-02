@@ -1,0 +1,4 @@
+interface:
+  display_name: "Advise Project Direction"
+  short_description: "Decide project boundaries before implementation"
+  default_prompt: "Use $advise-project-direction to decide whether this proposed change belongs on the current path, an isolated branch or worktree, a new project, research, or deferral before implementation."
