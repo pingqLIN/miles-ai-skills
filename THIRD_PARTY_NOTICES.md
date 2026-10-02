@@ -25,3 +25,25 @@ The canonical package in this repository was imported from the owner's local
 package. No separate third-party upstream or license grant was identified at
 import time; the registry therefore records its license as `unknown` rather
 than inferring one from another Skill or repository.
+
+## Advise Project Direction
+
+This package was synchronized from the owner's local Codex Skill installation,
+which identifies `pingqLIN/UniText` as its upstream governance source. No
+separate third-party upstream or license grant was identified at synchronization
+time, so the registry records its license as `unknown`.
+
+The published package removes UniText runtime-projection metadata while
+preserving the portable Skill behavior and its paired routing relationship with
+`maintain-project-updates`.
+
+## Maintain Project Updates
+
+This package was synchronized from the owner's local Codex Skill installation,
+which identifies `pingqLIN/UniText` as its upstream governance source. No
+separate third-party upstream or license grant was identified at synchronization
+time, so the registry records its license as `unknown`.
+
+The published package removes UniText runtime-projection metadata while
+preserving the portable Skill behavior, support files, and its paired routing
+relationship with `advise-project-direction`.

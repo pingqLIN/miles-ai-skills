@@ -1,4 +1,4 @@
-version: "1.2.0"
+version: "1.3.0"
 skills:
   - id: right-sizing-agent-tasks
     name: Right-Sizing Agent Tasks
@@ -19,6 +19,44 @@ skills:
       - project: lead-agent-control-plane
         role: task-preparation-policy
         integration: advisory-before-intake
+
+  - id: advise-project-direction
+    name: Advise Project Direction
+    display_name: 專案方向評估
+    version: 1.0.0
+    category:
+      - governance
+      - project-direction
+      - decision-support
+    status: stable
+    license: unknown
+    path: skills/advise-project-direction
+    canonical_locale: en
+    localized_files:
+      en: skills/advise-project-direction/SKILL.md
+    relationships:
+      - skill: maintain-project-updates
+        role: redirect-progress-and-readiness-requests
+        integration: paired-routing
+
+  - id: maintain-project-updates
+    name: Maintain Project Updates
+    display_name: 專案進度維護
+    version: 1.0.0
+    category:
+      - governance
+      - project-maintenance
+      - progress-review
+    status: stable
+    license: unknown
+    path: skills/maintain-project-updates
+    canonical_locale: en
+    localized_files:
+      en: skills/maintain-project-updates/SKILL.md
+    relationships:
+      - skill: advise-project-direction
+        role: redirect-project-boundary-requests
+        integration: paired-routing
 
   - id: jing-jing-clarifier
     name: jing-jing-clarifier
